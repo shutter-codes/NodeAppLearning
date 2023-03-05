@@ -16,3 +16,5 @@ console.log("hello world");
 
 // in synchronous function , it will block the output for further instructions while asynchronous will not block the other process.
 // synchronous will take more time than asynchronous.
+// in synchronous it will execute the instructions one by one
+// in asynchronous it will execute the other process till the particular process ready to executes
