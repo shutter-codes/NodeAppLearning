@@ -15,5 +15,4 @@ fs.readFile('demo.txt', 'utf-8', (err,text) => {
 console.log("hello world");
 
 // in synchronous function , it will block the output for further instructions while asynchronous will not block the other process.
-
 // synchronous will take more time than asynchronous.
