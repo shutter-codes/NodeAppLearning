@@ -46,4 +46,4 @@ const server = http.createServer((req, res) => {
 
 server.listen(8080);
 
-// complete product rendering at different pages
+// complete product rendering at different pages with example
