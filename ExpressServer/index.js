@@ -8,6 +8,27 @@ const express = require('express')
 const server = express()
 
 
+
+
+// API -endpoint  -route
+server.get('/', (req, res) => {
+    res.json({ type:'GET'})
+})
+
+server.post("/", (req, res) => {
+  res.json({ type: "POST" });
+});
+server.delete("/", (req, res) => {
+  res.json({ type: "DELETE" });
+});
+server.put("/", (req, res) => {
+  res.json({ type: "PUT" });
+});
+server.patch("/", (req, res) => {
+  res.json({ type: "PATCH" });
+});
+
+
 server.get('/', (req, res) => {
     // res.send('<h1>This is Express Server</h1>')
     // res.sendFile("/home/shutter/Desktop/NodeApp/ExpressServer/index.html");
