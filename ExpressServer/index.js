@@ -7,9 +7,11 @@ const products = indexapi.products;
 const express = require('express')
 const server = express()
 
+// body parser 
+server.use(express.json())
+
 
 // middlewares
-
 server.use((req, res, next) => {
     console.log(req.method, req.ip, req.hostname);
     console.log(req.get('User-Agent'),new Date);
@@ -17,6 +19,7 @@ server.use((req, res, next) => {
 })
 
 // auth middleWare
+ 
 
 const auth = (req, res, next) => {
     console.log(req.query);
@@ -38,7 +41,7 @@ server.get('/',auth, (req, res) => {
     res.json({ type:'GET'})
 })
 
-server.post("/", (req, res) => {
+server.post("/",auth , (req, res) => {
   res.json({ type: "POST" });
 });
 server.delete("/", (req, res) => {
