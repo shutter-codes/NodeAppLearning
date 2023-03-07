@@ -7,15 +7,41 @@ const products = indexapi.products;
 const express = require('express')
 const server = express()
 
+// body parser 
+server.use(express.json())
 
+
+// middlewares
+server.use((req, res, next) => {
+    console.log(req.method, req.ip, req.hostname);
+    console.log(req.get('User-Agent'),new Date);
+    next()
+})
+
+// auth middleWare
+ 
+
+const auth = (req, res, next) => {
+    console.log(req.query);
+    if (req.query.password == 123) {
+
+
+        next()
+        
+    } else {
+        res.status(401).send('page is not maintained')
+    }
+}
+
+// server.use(auth) instead use this at a enter point
 
 
 // API -endpoint  -route
-server.get('/', (req, res) => {
+server.get('/',auth, (req, res) => {
     res.json({ type:'GET'})
 })
 
-server.post("/", (req, res) => {
+server.post("/",auth , (req, res) => {
   res.json({ type: "POST" });
 });
 server.delete("/", (req, res) => {
