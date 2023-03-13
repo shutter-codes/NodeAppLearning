@@ -32,8 +32,8 @@ const auth = (req, res, next) => {
         res.status(401).send('page is not maintained')
     }
 }
-
-// server.use(auth) instead use this at a enter point
+// instead use this at a enter point
+server.use(auth) 
 
 
 // API -endpoint  -route
